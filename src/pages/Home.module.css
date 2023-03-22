@@ -1,0 +1,47 @@
+.box {
+    height:100px;
+    width:100px;
+    background-color: transparent;
+    border: 1px solid white;
+    /* transform: translateY(30%); */
+    transition: all 1s ease;
+}
+.update {
+    background-color: brown;
+    transform: translateY(-30%);
+}
+.homecontainer {
+    display: flex;
+    flex-direction: column;
+    padding:2rem;
+    justify-content: center;
+    align-items: center;
+    border:1px solid white;
+    gap:9rem;
+}
+.cardcontainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.card {
+    width:20rem;
+    border-radius: 0.7rem;
+    aspect-ratio: 16/9;
+    transition: all 450ms ease;
+    background-color: #FF8DC7;
+}
+.active {
+    transform: translateY(-80%);
+    background-color: blue;
+}
+.active:hover {
+ box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+
+.intro > p {
+    font-size: 1.75rem;
+    font-family: 'Playfair Display SC', serif;
+    color:#e91e63;
+}

@@ -1,0 +1,25 @@
+.button {
+    padding: 0.75rem 1rem 0.75rem 1rem;
+    font-family: monospace;
+    color:white;
+    border-color: transparent;
+    transition:all 0.6s ease;
+}
+.primary {
+    background-color: #f65b8d;
+}
+.secondary {
+    background-color: #FF8DC7;
+}
+.standard {
+    border:none;
+}
+.rounded {
+    border-radius: 2rem;
+}
+.button:hover {
+    background-color: white;
+    color:purple;
+    font-weight: bolder;
+    cursor:pointer;
+}

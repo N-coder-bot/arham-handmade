@@ -1,0 +1,17 @@
+.container {
+    position:sticky;
+    display: flex;
+    z-index: 100;
+    align-items: center;
+    background-color: transparent;
+    top:0;
+    gap:2rem;
+    transition: all 5s ease;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+
+}
