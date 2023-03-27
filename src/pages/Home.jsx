@@ -1,22 +1,11 @@
 import styles from "./Home.module.css";
 import arham from "../assets/ARHAM HANDMADE.svg";
 import { useState } from "react";
+import { InView } from "react-intersection-observer";
+import { Link } from "react-router-dom";
 function Home() {
-  const [active, setactive] = useState(false);
-  // const onScroll = () => {
-  //   const yoffset = window.scrollY;
-  //   if (yoffset >= 10) {
-  //     setactive(true);
-  //     window.removeEventListener("scroll", onScroll);
-  //   } else setactive(false);
-  // };
-  // window.addEventListener("scroll", onScroll, { parse: true });
-  // let options = {
-  //   root: document.getElementsByClassName(`${styles.title}`),
-  //   rootMargin: "0 0 50px 0px",
-
-  // }
-  // let observer = new IntersectionObserver(callback, options);
+  const [inView, setinView] = useState(false);
+  const [inView2, setinView2] = useState(false);
   return (
     <div className={styles.homecontainer}>
       <div className={styles.title}>
@@ -32,25 +21,75 @@ function Home() {
           <p>
             "Handmade with love, worn with pride,wear the colors of tradition."
           </p>
+          Scroll-below||
         </div>
       </div>
-      <div className={styles.cardcontainer}>
-        <div
-          className={
-            active ? `${styles.card} ${styles.active}` : `${styles.card}`
-          }
-        ></div>
-        <div
-          className={
-            active ? `${styles.card} ${styles.active}` : `${styles.card}`
-          }
-        ></div>
-        <div
-          className={
-            active ? `${styles.card} ${styles.active}` : `${styles.card}`
-          }
-        ></div>
-      </div>
+      <InView onChange={setinView} triggerOnce={true} threshold={0.1}>
+        {({ ref, inView }) => (
+          <div ref={ref} style={{ display: "flex", gap: "4rem" }}>
+            <Link
+              to="/Bedsheet"
+              className={
+                inView ? `${styles.card} ${styles.active}` : `${styles.card}`
+              }
+            >
+              <p>Bedsheet</p>
+              <div className={styles.tooltip}>view more</div>
+            </Link>
+            <Link
+              to="Saree"
+              className={
+                inView ? `${styles.card} ${styles.active}` : `${styles.card}`
+              }
+            >
+              <p> Saree</p>
+              <div className={styles.tooltip}>view more</div>
+            </Link>
+            <Link
+              to="/Kurtis"
+              className={
+                inView ? `${styles.card} ${styles.active}` : `${styles.card}`
+              }
+            >
+              <p>Kurtis</p>
+              <div className={styles.tooltip}>view more</div>
+            </Link>
+          </div>
+        )}
+      </InView>
+      <InView onChange={setinView2} triggerOnce={true} threshold={0}>
+        {({ ref, setinView2 }) => (
+          <div ref={ref} style={{ display: "flex", gap: "4rem" }}>
+            <Link
+              to="/Shoes"
+              className={
+                inView2 ? `${styles.card} ${styles.active}` : `${styles.card}`
+              }
+            >
+              <p>Shoe</p>
+              <div className={styles.tooltip}>view more</div>
+            </Link>
+            <Link
+              to="/Tshirts"
+              className={
+                inView2 ? `${styles.card} ${styles.active}` : `${styles.card}`
+              }
+            >
+              <p>Tshirts</p>
+              <div className={styles.tooltip}>view more</div>
+            </Link>
+            <Link
+              to="/Showls"
+              className={
+                inView2 ? `${styles.card} ${styles.active}` : `${styles.card}`
+              }
+            >
+              <p>Showl</p>
+              <div className={styles.tooltip}>view more</div>
+            </Link>
+          </div>
+        )}
+      </InView>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import styles from "./Error.css";
+import styles from "./Error.module.css";
 function Error() {
   return (
     <div className={styles.container}>
